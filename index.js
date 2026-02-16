@@ -1,3 +1,5 @@
-git add index.js
-git commit -m "最小ボタンテスト用コード"
-git push origin main
+client.on(Events.InteractionCreate, async interaction => {
+  if (interaction.isChatInputCommand() && interaction.commandName === 'post') {
+    await interaction.reply({ content: "ボタンテスト開始", ephemeral: true });
+  }
+});

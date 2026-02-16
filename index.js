@@ -42,7 +42,7 @@ client.on(Events.InteractionCreate, async interaction => {
   } else if (interaction.isButton()) {
     if (interaction.customId === 'post_to_x') {
       // ここにX投稿処理を追加
-      await interaction.reply({ content: '記事をXに投稿しました！', ephemeral: true });
+      await interaction.reply({ content: "テスト投稿成功", ephemeral: true });
     }
   }
 });

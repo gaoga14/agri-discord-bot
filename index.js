@@ -26,18 +26,18 @@ const rest = new REST({ version: '10' }).setToken(process.env.DISCORD_TOKEN);
   }
 })();
 
-// ── ボタン作成＆投稿イベント ──
 client.on(Events.InteractionCreate, async interaction => {
-  if (interaction.isChatInputCommand()) {
-    if (interaction.commandName === 'post') {
-      const row = new ActionRowBuilder()
-        .addComponents(
-          new ButtonBuilder()
-            .setCustomId('post_to_x')
-            .setLabel('Xに投稿')
-            .setStyle(ButtonStyle.Primary)
-        );
-      await interaction.reply({ content: '記事を投稿するにはボタンをクリックしてください', components: [row] });
+  if (interaction.isButton()) {
+    if (interaction.customId === 'post_to_x') {
+      // 最小テスト
+      await interaction.reply({ 
+        content: "ボタン動作OK", 
+        ephemeral: true  // 他の人には見えない
+      });
+    }
+  }
+});
+
     }
   } else if (interaction.isButton()) {
     if (interaction.customId === 'post_to_x') {
